@@ -1,0 +1,2 @@
+INSERT INTO `comm`.`plank_parametri` (`id_par`, `particellaazienda`, `valore`) VALUES ('160', 'eems', '30450');
+INSERT INTO `comm`.`plank_parametri` (`id_par`, `particellaazienda`, `valore`) VALUES ('161', 'eems', '30454');
