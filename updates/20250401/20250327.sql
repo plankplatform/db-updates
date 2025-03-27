@@ -82,17 +82,17 @@ BEGIN
 			END,
 		EE.potenzaimpegnata = 
 			CASE WHEN FIND_IN_SET(E.cod_servizio, var_cod_variazionepotenza) AND cod_flusso like '%150' AND E.esito = 1 THEN
-				IFNULL(REPLACE(F.filled_values->'$.\"2\"', '\"', ''), EE.potenzaimpegnata)
+				IFNULL(NULLIF(REPLACE(F.filled_values->'$.\"2\"', '\"', ''), ''), EE.potenzaimpegnata)
                 ELSE EE.potenzaimpegnata
 			END,
         EE.potenzadisponibile = 
 			CASE WHEN FIND_IN_SET(E.cod_servizio, var_cod_variazionepotenza) AND cod_flusso like '%150' AND E.esito = 1 THEN
-				IFNULL(REPLACE(F.filled_values->'$.\"3\"', '\"', ''), EE.potenzadisponibile)
+				IFNULL(NULLIF(REPLACE(F.filled_values->'$.\"3\"', '\"', ''), ''), EE.potenzadisponibile)
 				ELSE EE.potenzadisponibile
 			END,
         EE.tensione =
 			CASE WHEN FIND_IN_SET(E.cod_servizio, var_cod_variazionepotenza) AND cod_flusso like '%150' AND E.esito = 1 THEN
-				IFNULL(REPLACE(F.filled_values->'$.\"4\"', '\"', ''), EE.tensione)
+				IFNULL(NULLIF(REPLACE(F.filled_values->'$.\"4\"', '\"', ''), ''), EE.tensione)
                 ELSE EE.tensione
 			END,
         T.statolavorazione = 
